@@ -1,7 +1,5 @@
-// Copyright (c) 2020 Mr. Coxall All rights reserved
-//
-// Created by: Mr. Coxall
-// Created on: Sep 2020
+// Created by: Parsa Tahavori
+// Created on: Dec 2022
 // This file contains the JS functions for index.html
 
 "use strict"
@@ -10,14 +8,26 @@
  * Check servie worker.
  */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-PWA-Test-use/sw.js", {
-    scope: "/ICS2O-PWA-Test-use/",
+  navigator.serviceWorker.register("/ICS2O-unit5-02-radioButtons/sw.js", {
+    scope: "/ICS2O-unit5-02-radioButtons/",
   })
 }
 
 /**
- * This function displays an alert.
+ * this function
  */
 function myButtonClicked() {
-  document.getElementById("hello-world").innerHTML = "<p>Hello, World!</p>"
+  const radioButton1 = document.getElementById("option-1").checked
+
+  if (radioButton1 == true) {
+    const randomNumber = Math.floor(Math.random() * 6) + 1
+
+    document.getElementById("value").innerHTML =
+      "you picked option positive. your number is " + randomNumber + "."
+  } else {
+    const randomNegativeNumber = Math.floor(Math.random() * -6) + -1
+
+    document.getElementById("value").innerHTML =
+      "you picked option negative. your number is " + randomNegativeNumber + "."
+  }
 }
